@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "fairy_sparklers": {
+        "id": 0,
+        "type": 0,
+        "name": "Fairy Sparklers",
+        "description": "Multi-colored sparklers that are safe for any age."
+      }
+    },
+    {
+      "firecrackers": {
+        "id": 1,
+        "type": 0,
+        "name": "Firecrackers",
+        "description": "They go bang, but not BANG! You'll still probably lose a finger or two."
+      }
+    },
+    {
+      "m_80": {
+        "id": 2,
+        "type": 0,
+        "name": "M-80 firecracker",
+        "description": "Pack of 6. Big fun and loss of appendage guarenteed!"
+      }
+    },
+    {
+      "big_red_rocket": {
+        "id": 3,
+        "type": 1,
+        "name": "Big Red Rocket",
+        "description": "Shoots up to 350 feet into the air and creates a red shower of sparks."
+      }
+    },
+    {
+      "blue_surprise": {
+        "id": 4,
+        "type": 1,
+        "name": "Blue Surpise",
+        "description": "Silent ascension up to 500 feet into the air with building-shaking explosion that will set off every car alarm within a 10 mile radius."
+      }
+    },
+    {
+      "mr_gorbachev": {
+        "id": 5,
+        "type": 2,
+        "name": "Mr. Gorbachev",
+        "description": "Tears down walls, and floors, and roofs..."
+      }
+    },
+		    {
+      "the_destroyer": {
+        "id": 5,
+        "type": 3,
+        "name": "The Destroyer",
+        "description": "Need to tunnel through the Alps? Then this is your choice."
+      }
+    }
+  ]
+}
