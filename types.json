@@ -1,0 +1,28 @@
+{
+    "types": [
+        {
+            "id": 0,
+            "category": 0,
+            "name": "personal",
+            "description": "Fireworks intended for recreational use during holiday celebrations"
+        },
+      	{
+      		  "id": 1,
+            "category": 0,
+            "name": "professional",
+            "description": "Fireworks only to be used by certified fireworks display professionals"
+      	},
+      	{
+      		  "id": 2,
+            "category": 1,
+            "name": "level 1",
+            "description": "Demolition explosives that require a Level 1 certification to be used for small demolition projects"
+      	},
+      	{
+      		  "id": 3,
+            "category": 1,
+            "name": "level 2",
+            "description": "Demolition explosives that require a Level 2 certification to be used"
+      	}
+    ]
+}
