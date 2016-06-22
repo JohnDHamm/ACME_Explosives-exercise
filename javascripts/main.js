@@ -47,10 +47,58 @@ var productAJAX = function() {
 
 var displayProducts = function(selectedCat, catArray, typeArray, productArray) {
 
-	console.log("selectedCat", selectedCat);
-	console.log("catArray", catArray);
-	console.log("typeArray", typeArray);
-	console.log("productArray", productArray);
+		console.log("selectedCat", selectedCat);
+		console.log("catArray", catArray);
+		console.log("typeArray", typeArray);
+		console.log("productArray", productArray);
+
+	// if no category selected, alert
+	if (selectedCat === "Please select a category") {
+		alert("Please select a category.");
+		return;
+	};
+
+	// get catID for selected category
+	for (let i=0; i<catArray.length; i++){
+		if (catArray[i].name === selectedCat){
+			var catID = i;	
+		}
+	};
+
+	// check if type is of selected Cat and create new array of selected types
+	var selectedTypes = [];
+	for (let i=0; i<typeArray.length; i++){
+		if (typeArray[i].category === catID){
+			selectedTypes.push(i);
+			console.log("selectedTypes", selectedTypes);
+		}
+	};
+
+	// go through products and display those in category
+	var $outputEl = $("#output");
+
+
+	for (let i=0; i<productArray.length; i++) {
+		for (let j=0; j<selectedTypes.length; j++) {
+			if (productArray[i].type = selectedTypes[j]) {
+			$outputEl.append(`<div id="card--${i}" class="card"></div>`);
+				$(".card").append(`<h1>${productArray[i].name}</h1>
+					<p>${productArray[i].description}</p>
+					<h4>${selectedCat}</h4>
+					<h6>${typeArray[j].name}</h6>
+					<p>${typeArray[j].description}</p>`);
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
 
 };
 
