@@ -31,6 +31,7 @@ var typeAJAX = function() {
   });
 };
 
+
 var productAJAX = function() {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -45,12 +46,15 @@ var productAJAX = function() {
 };
 
 
+
+
+
 var displayProducts = function(selectedCat, catArray, typeArray, productArray) {
 
-		console.log("selectedCat", selectedCat);
-		console.log("catArray", catArray);
-		console.log("typeArray", typeArray);
-		console.log("productArray", productArray);
+		// console.log("selectedCat", selectedCat);
+		// console.log("catArray", catArray);
+		// console.log("typeArray", typeArray);
+		// console.log("productArray", productArray);
 
 	// if no category selected, alert
 	if (selectedCat === "Please select a category") {
@@ -59,9 +63,10 @@ var displayProducts = function(selectedCat, catArray, typeArray, productArray) {
 	};
 
 	// get catID for selected category
+	var catID = null;
 	for (let i=0; i<catArray.length; i++){
 		if (catArray[i].name === selectedCat){
-			var catID = i;	
+			catID = i;	
 		}
 	};
 
@@ -70,26 +75,47 @@ var displayProducts = function(selectedCat, catArray, typeArray, productArray) {
 	for (let i=0; i<typeArray.length; i++){
 		if (typeArray[i].category === catID){
 			selectedTypes.push(i);
-			console.log("selectedTypes", selectedTypes);
-		}
+			// console.log("selectedTypes", selectedTypes);
+		};
 	};
+
+
 
 	// go through products and display those in category
 	var $outputEl = $("#output");
 
+	// loop through selectedTypes array and check for products with that type and display that product
+	selectedTypes.forEach(function(typeID) {
+		// console.log("typeID", typeID);
+		// go thru productArray to get object and check type
+		productArray.forEach(function(productObj){
+			for (var obj in productObj) {
+				var currentProduct = productObj[obj];
+				// console.log("currentProduct type:", currentProduct.type);
+				if (currentProduct.type === typeID) {
+					//build card to display
+					console.log("Category:", selectedCat);
+					console.log("product name:", currentProduct.name);
+					
+					console.log("type:", typeArray[typeID].name);
+				};
+			};
+		});
+	});
 
-	for (let i=0; i<productArray.length; i++) {
-		for (let j=0; j<selectedTypes.length; j++) {
-			if (productArray[i].type = selectedTypes[j]) {
-			$outputEl.append(`<div id="card--${i}" class="card"></div>`);
-				$(".card").append(`<h1>${productArray[i].name}</h1>
-					<p>${productArray[i].description}</p>
-					<h4>${selectedCat}</h4>
-					<h6>${typeArray[j].name}</h6>
-					<p>${typeArray[j].description}</p>`);
-			}
-		}
-	}
+
+
+	// for (let i=0; i<productArray.length; i++) {
+	// 		if (productArray[i].type === selectedTypes[j]) {
+	// 		$outputEl.append(`<div id="card--${i}" class="card"></div>`);
+	// 			$(".card").append(`<h1>${productArray[i].name}</h1>
+	// 				<p>${productArray[i].description}</p>
+	// 				<h4>${selectedCat}</h4>
+	// 				<h6>${typeArray[j].name}</h6>
+	// 				<p>${typeArray[j].description}</p>`);
+	// 		}
+	// 	}
+	// }
 
 
 
@@ -108,7 +134,6 @@ $(document).ready(function() {
 
 	$("#selectEl").change(function(){
 		var selectedCat = $("#selectEl option:selected").text();
-		// console.log("selectedCat", selectedCat);
 		var catArray = [];
 		var typeArray = [];
 		var productArray = [];
@@ -116,7 +141,6 @@ $(document).ready(function() {
 		catAJAX()
 			.then(function(data1) {
 				catArray = data1.categories;
-				// console.log("catArray", catArray);
 		    return typeAJAX(data1);
 		  })
 		  .then(function(data2) {

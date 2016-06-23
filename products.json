@@ -48,7 +48,7 @@
         "description": "Tears down walls, and floors, and roofs..."
       }
     },
-		    {
+		{
       "the_destroyer": {
         "id": 5,
         "type": 3,
