@@ -1,0 +1,30 @@
+#navbar {
+	background: #222;
+	text-align: center;
+	color: #E8B725;
+}
+
+.card {
+	border: 1px solid black;
+	border-radius: 10px;
+	background: #ddd;
+	padding: 0 15px;
+	margin: 20px 0;
+}
+
+h1.name {
+	color: navy;
+}
+
+p.description {
+	font-size: 1.5em;
+}
+
+h4.type {
+	font-style: italic;
+	font-weight: normal;
+}
+
+p.typeDescript {
+	color: #555;
+}
